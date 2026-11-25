@@ -4,10 +4,11 @@
 // ============================================================================
 
 import axios from 'axios';
+import { BASE_URL } from "../config";
 
 // Create an axios instance with base URL pointing to the Express server
 const api = axios.create({
-  baseURL: 'http://localhost:5000/api',
+  baseURL: `${BASE_URL}/api`,
 });
 
 // Request interceptor: reads JWT token from localStorage and attaches it

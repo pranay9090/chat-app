@@ -1,11 +1,12 @@
 // Socket.io client connection helper
 import { io } from 'socket.io-client';
+import { BASE_URL } from "../src/config.js";
 
 let socket = null;
 
 export const connectSocket = (token) => {
   if (!socket) {
-    socket = io('http://localhost:5000', { auth: { token } });
+    socket = io(BASE_URL || undefined, { auth: { token } });
   }
   return socket;
 };
