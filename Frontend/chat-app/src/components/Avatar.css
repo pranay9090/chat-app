@@ -1,0 +1,40 @@
+/* Avatar component styles */
+
+.custom-avatar-wrapper {
+  position: relative;
+  display: inline-flex;
+  flex-shrink: 0;
+}
+
+.custom-avatar {
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-headline);
+  font-weight: 600;
+  text-transform: uppercase;
+  user-select: none;
+  flex-shrink: 0;
+}
+
+.custom-avatar-img {
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border);
+  object-fit: cover;
+  display: block;
+  flex-shrink: 0;
+  background-color: var(--surface-2);
+}
+
+.avatar-online-badge {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 10px;
+  height: 10px;
+  background-color: var(--online);
+  border-radius: var(--radius-full);
+  border: 2px solid var(--surface);
+}

@@ -1,0 +1,293 @@
+/* Full-viewport scrollable register wrapper */
+.register-page {
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  justify-content: center;
+  padding: 24px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background-color: var(--bg);
+  background-image: radial-gradient(ellipse 80% 50% at 50% -10%, rgba(94, 106, 210, 0.14), transparent);
+  background-repeat: no-repeat;
+}
+
+/* Centered register card with Obsidian glass styling */
+.register-card {
+  width: 100%;
+  max-width: 680px;
+  margin: auto;
+  padding: 36px 44px;
+  box-sizing: border-box;
+  background-color: rgba(17, 17, 20, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  color: var(--text);
+}
+
+.register-header {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.auth-logo-wrap {
+  width: 52px;
+  height: 52px;
+  margin: 0 auto 10px;
+  border-radius: var(--radius-lg);
+  background-color: var(--accent-tint);
+  border: 1px solid var(--accent-border);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.register-logo {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  border-radius: 6px;
+}
+
+.register-app-title {
+  margin: 0 0 2px 0;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent-soft);
+}
+
+.register-heading {
+  margin: 0 0 4px 0;
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+.register-subheading {
+  margin: 0;
+  font-size: 13.5px;
+  color: var(--text-muted);
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Responsive field grid row (1 column mobile, 2 columns desktop) */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  align-items: start;
+}
+
+.register-field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 0;
+}
+
+.register-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.register-input {
+  box-sizing: border-box;
+  width: 100%;
+  height: 46px;
+  padding: 0 12px;
+  background-color: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  color: var(--text);
+  font-size: 14px;
+  font-family: inherit;
+  outline: none;
+  transition: border-color var(--ease-state), box-shadow var(--ease-state);
+}
+
+.register-input::placeholder {
+  color: var(--text-muted);
+}
+
+.register-input:focus {
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 3px var(--focus-ring);
+}
+
+.register-input.input-error {
+  border-color: var(--danger);
+}
+
+.password-input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.password-input-container .register-input {
+  padding-right: 42px;
+}
+
+.password-toggle-button {
+  box-sizing: border-box;
+  position: absolute;
+  right: 8px;
+  width: 28px;
+  height: 28px;
+  background: none;
+  border: none;
+  border-radius: var(--radius-sm);
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: color var(--ease-state), background-color var(--ease-state);
+}
+
+.password-toggle-button:hover {
+  color: var(--text);
+  background-color: var(--surface-2);
+}
+
+.register-error-message {
+  font-size: 12px;
+  color: var(--danger-text);
+}
+
+.server-error-banner {
+  width: 100%;
+  box-sizing: border-box;
+  background-color: var(--danger-bg);
+  border: 1px solid rgba(239, 68, 68, 0.35);
+  color: var(--danger-text);
+  padding: 10px 12px;
+  border-radius: var(--radius-md);
+  font-size: 13px;
+  text-align: center;
+}
+
+.register-submit-btn {
+  box-sizing: border-box;
+  margin-top: 6px;
+  width: 100%;
+  height: 46px;
+  padding: 0 16px;
+  background-color: var(--accent);
+  color: var(--on-accent);
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: 14px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background-color var(--ease-state), opacity var(--ease-state);
+}
+
+.register-submit-btn:hover:not(:disabled) {
+  background-color: var(--accent-hover);
+}
+
+.register-submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.register-footer {
+  margin-top: 16px;
+  text-align: center;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.register-footer p {
+  margin: 0;
+}
+
+.register-link {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.register-link:hover {
+  text-decoration: underline;
+}
+
+/* Two-column grid on tablets and desktop */
+@media (min-width: 640px) {
+  .form-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+}
+
+/* Compact layout for short laptop viewports (125% / 150% scaling) */
+@media (max-height: 720px) {
+  .register-card {
+    padding: 24px 36px;
+  }
+
+  .register-header {
+    margin-bottom: 12px;
+  }
+
+  .auth-logo-wrap {
+    width: 44px;
+    height: 44px;
+    margin-bottom: 8px;
+  }
+
+  .register-logo {
+    width: 28px;
+    height: 28px;
+  }
+
+  .register-heading {
+    margin-bottom: 2px;
+    font-size: 23px;
+  }
+
+  .register-form {
+    gap: 10px;
+  }
+
+  .form-row {
+    row-gap: 10px;
+  }
+
+  .register-input,
+  .register-submit-btn {
+    height: 42px;
+  }
+
+  .register-footer {
+    margin-top: 12px;
+  }
+}
+
+/* One column with compact card padding on narrow screens */
+@media (max-width: 639px) {
+  .register-card {
+    padding: 24px;
+  }
+}
