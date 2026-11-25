@@ -14,7 +14,8 @@ import userRoutes from './routes/userRoutes.js';
 import conversationRoutes from './routes/conversationRoutes.js';
 import messageRoutes from './routes/messageRoutes.js';
 import initSocket from './socket/socketHandler.js';
-
+import path from "path";
+import { fileURLToPath } from "url";
 // Connect to MongoDB database
 connectDB();
 
@@ -49,10 +50,9 @@ app.use(
 // Middleware to parse incoming JSON request bodies
 app.use(express.json({ limit: '200kb' }));
 
-// Test route to verify API is running
-app.get('/', (req, res) => {
-  res.send('API is running');
-});
+
+
+
 
 // Mount REST API routes
 app.use('/api/auth', authRoutes);
@@ -62,6 +62,13 @@ app.use('/api/messages', messageRoutes);
 
 // Read port from environment variables or fallback to 5000
 const PORT = process.env.PORT || 5000;
+
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const dist = path.join(__dirname, "../Frontend/chat-app/dist");
+
+app.use(express.static(dist));
+app.get("/{*any}", (req, res) => res.sendFile(path.join(dist, "index.html")));
 
 // Start the HTTP server (with Socket.io attached)
 server.listen(PORT, () => {
